@@ -1,0 +1,73 @@
+<div *ngIf="!country; else divCountry"
+    class ="alert alert-info">
+    Wait please...
+</div>
+<ng-template #divCountry>
+
+<div class = "row">
+    <div class= "col-12">
+        <h1>Country: <small>{{ country[0].name.common }}</small></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h3>Flag</h3>
+        <img [src]= "country[0].flags.png" class="img-thumbnail"/>
+    </div>
+    <div class="col">
+        <h3>Information</h3>
+        <ul class = "list-group-item">
+            <li class="list-group-item">
+                <strong>
+                    Population: 
+                </strong>
+                {{country[0].population | number}}
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    Capital: 
+                </strong>
+                {{country[0].capital}}
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    Country Code: 
+                </strong>
+                {{country[0].cca3}}
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    Timezones: 
+                </strong>
+                {{country[0].timezones}}
+            </li>
+            <li class="list-group-item">
+                <strong>
+                    Continent: 
+                </strong>
+                {{country[0].region}}
+            </li>
+
+        </ul>
+    </div>
+    <h3>Translations of the name of the country
+    </h3>
+    <div class="row">
+        <div class="col">
+
+            <span class="badge bg-primary me-1">{{country[0].translations?.['spa']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['jpn']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['rus']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['por']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['deu']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['swe']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['per']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['zho']!.common}}</span>
+            <span class="badge bg-primary me-1">{{country[0].translations?.['urd']!.common}}</span>
+
+        </div>
+    </div>
+
+</div>
+</ng-template>

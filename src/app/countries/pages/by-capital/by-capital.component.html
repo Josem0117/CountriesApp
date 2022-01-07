@@ -1,0 +1,35 @@
+<h3>By capital</h3>
+<hr>
+
+<div class="row"
+class= "animate__animated animate__fadeIn animate__faster">
+    <div class="col">
+        <app-countries-input
+            (onEnter)="Search($event)"
+            (onDebounce)="Suggest($event)"
+            placeholder= "Search capital..."
+            >
+        </app-countries-input>
+    </div>
+</div>
+<ul class = "list-group">
+    <li *ngFor="let country of Suggestedcountries"
+    class = "list-group-item list-group-item-action">
+        <a  class ="nav-link"
+        [routerLink] = "['/country', country.cca2]"> 
+            {{country.capital}}
+        </a>
+    </li>
+</ul>
+<hr>
+<div *ngIf="ErrorFound"
+    class = "alert alert-danger">
+    Could not find anything that matches {{term}}
+</div>
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-countries-table [data] = 'countries'>
+        </app-countries-table>
+    </div>
+</div>
